@@ -9,11 +9,14 @@ use DI\Container;
 class kernel {
 
     private $container;
+    private $logger;
+    private $doctrine;
 
     public function __construct()
     {
         $this -> container = $this -> createContainer();
         $this -> logger = $this -> container -> get(LogManager::class);
+        $this -> doctrine =$this -> container -> get(DoctrineManager::class);
     }
 
     public function init()
