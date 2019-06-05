@@ -37,4 +37,4 @@ class ViewManager
         {
             echo $this -> twig -> render($template, $args);
         }
-}
+    }
