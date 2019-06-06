@@ -10,7 +10,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 class DoctrineManager {
 
     private $container;
-    private $em;
+    public $em;
 
     public function __construct(Container $container)
     {
@@ -21,7 +21,7 @@ class DoctrineManager {
             dirname(__DIR__).'\models\Repositories'
         ];
         $isDevMode = true;
-        $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode, null, null, false);
+        $config = Setup::createAnnotationMetadataConfiguration($path, $isDevMode, null, null, false);
         AnnotationRegistry::registerLoader('class_exists');
         $this -> em = EntityManager::create($dbconfig, $config);
     }
