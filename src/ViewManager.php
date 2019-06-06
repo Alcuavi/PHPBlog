@@ -13,7 +13,7 @@ class ViewManager
     {
         $loader = new \Twig\Loader\FileSystemLoader(dirname(__DIR__).'\templates');
 
-        $this -> twig = new \Twig\Enviroment($loader, [
+        $this -> twig = new \Twig\Environment($loader, [
             'cache' => dirname(__DIR__).'\cache\views'
         ]);
     }
@@ -24,7 +24,7 @@ class ViewManager
         {
             extract($args, EXTR_SKIP);
         }
-        $file = dirname(__DIR__)."\templates\".$view;
+        $file = dirname(__DIR__)."/templates/".$view;
         if (is_readeable($file))
         {
             require $file;
@@ -37,4 +37,4 @@ class ViewManager
         {
             echo $this -> twig -> render($template, $args);
         }
-    }
+}
